@@ -265,10 +265,8 @@ GameObject:
   - component: {fileID: 280625332}
   - component: {fileID: 280625331}
   - component: {fileID: 280625334}
-  - component: {fileID: 280625333}
-  - component: {fileID: 280625335}
   m_Layer: 0
-  m_Name: Asphalt
+  m_Name: AsphaltPlaceHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,38 +411,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8399971, y: 1.1736571}
   m_EdgeRadius: 0
---- !u!114 &280625333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280625325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b4f4bcc6845f24481922a413cfbe06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 4
-  jumpForce: 5
-  horizontalInput: 0
-  isFacingRight: 1
-  wallSlideSpeed: 8
-  isWallSliding: 0
-  wallJumpForce: {x: 10, y: 12}
-  wallJumpDuration: 0.2
-  isWallJumping: 0
-  wallJumpDirection: 0
-  canJump: 0
-  groundCheck: {fileID: 1149704029}
-  wallCheck: {fileID: 1149704029}
-  groundLayer:
-    m_Bits: 1
-  groundCheckSize: {x: 0.5, y: 0.1}
-  wallCheckSize: {x: 0.1, y: 0.8}
-  isGrounded: 0
-  isTouchingWall: 0
-  rb: {fileID: 0}
 --- !u!114 &280625334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,44 +425,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   jumpForce: 5
+  LeftAction:
+    m_Name: Left
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: d326a034-7a00-428e-8120-4b950eb2bbd0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a80d92b4-60df-48f1-987d-d90091c6c5be
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left
+      m_Flags: 0
+    m_Flags: 0
   groundCheck: {fileID: 1149704029}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
   groundCheckSize: {x: 0.5, y: 0.1}
---- !u!114 &280625335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280625325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d38c29c95c3f18409120bf5ca9d1772, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 4
-  jumpForce: 5
-  horizontalInput: 0
-  isFacingRight: 1
-  maxJumpsAllowed: 1
-  jumpsRemaining: 0
-  wallSlideSpeed: 2
-  wallJumpForce: {x: 10, y: 12}
-  wallJumpDuration: 0.2
-  isWallSliding: 0
-  isWallJumping: 0
-  wallJumpDirection: 0
-  groundCheck: {fileID: 1149704029}
-  wallCheck: {fileID: 1149704029}
-  groundLayer:
-    m_Bits: 1
-  groundCheckSize: {x: 0.5, y: 0.1}
-  wallCheckSize: {x: 0.1, y: 0.8}
-  isGrounded: 0
-  isTouchingWall: 0
-  rb: {fileID: 0}
 --- !u!4 &518878457 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1202485767711159748, guid: 91c015a1dd37edd44abb1523ecbddcd8, type: 3}

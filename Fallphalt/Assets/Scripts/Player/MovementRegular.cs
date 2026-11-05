@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MovementRegular : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class MovementRegular : MonoBehaviour
     public float moveSpeed = 8f;
     public float jumpForce = 12f;
     private float horizontalInput;
+    public InputAction LeftAction;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -55,15 +57,6 @@ public class MovementRegular : MonoBehaviour
             transform.localScale = new Vector3(-1f, 1f, 1f);
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        // Visualizes the ground check box in the Unity Editor
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(groundCheck.position, groundCheckSize);
-        }
-    }
     void OnCollisionEnter(Collision collision)
     {
         // Check if the object we touched has the tag "Ground"
