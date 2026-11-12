@@ -18,6 +18,13 @@ public class MovementRegular : MonoBehaviour
     public float moveSpeed = 5f;
     public float sprintMultiplier = 2f;
     public float jumpForce = 5f;
+    private float vertical;
+
+    //Checks
+    private bool isLadder;
+    private bool isClimbing;
+
+    //Forgot the name
 
     void Start()
     {
@@ -41,6 +48,12 @@ public class MovementRegular : MonoBehaviour
         {
             moveSpeed /= sprintMultiplier; // Divide the speed when not sprinting
         }
+        vertical = Input.GetAxis("Vertical");
+
+        if (isLadder && Mathf.Abs(vertical) > 0f)
+        {
+            isClimbing = true;
+        }
     }
     private void FixedUpdate()
     {
@@ -51,6 +64,31 @@ public class MovementRegular : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, vertical * moveSpeed);
+        }
+        else
+        {
+            rb.gravityScale = 3.5f;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isLadder = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isLadder = false;
+            isClimbing = false;
+        }
+
     }
 
     // Here to check if grounded 
