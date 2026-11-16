@@ -8,12 +8,16 @@ public class AttackScript : MonoBehaviour
     [SerializeField] private float attackRange = 1.5f;
     [SerializeField] private LayerMask attackableLayer;
     private RaycastHit2D[] hits;
-   // [SerializeField] private int playerHealth = 100;
+
+    // Player fighting stats
+    [SerializeField] private float damageAmount = 1f;
+    [SerializeField] private int playerHealth = 100;
+    [SerializeField] private int currentHealth;
 
     // Update is called once per frame
     void Update()
     {
-        if (UserInput.instance.controls.Attack.Attack.WasPressedThisFrame())
+        if (UserInput.instance.controls.Player.Attack.WasPressedThisFrame())
         {
             //attack 
         }
@@ -25,11 +29,19 @@ public class AttackScript : MonoBehaviour
 
         for (int i = 0; i < hits.Length; i++)
         {
-            EnemyHealth enemyHealth = hits[i].collider.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
+            IDamagable iDamagable = hits[i].collider.gameObject.GetComponent<IDamagable>();
+
+            if (iDamagable != null)
             {
+                //Do damage
+                iDamagable.Damage(damageAmount); //Damage is tbd
 
             }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(attackTransform.position, attackRange);
     }
 }

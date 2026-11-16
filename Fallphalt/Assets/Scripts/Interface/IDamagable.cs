@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerInteract : MonoBehaviour
+public interface IDamagable
 {
-
+    public void Damage(float damageAmount);
 }
