@@ -11,15 +11,15 @@ public class AttackScript : MonoBehaviour
 
     // Player fighting stats
     [SerializeField] private float damageAmount = 1f;
-    [SerializeField] private int playerHealth = 100;
-    [SerializeField] private int currentHealth;
+    // [SerializeField] private int playerHealth = 100;
+    // [SerializeField] private int currentHealth;
 
     // Update is called once per frame
     void Update()
     {
         if (UserInput.instance.controls.Player.Attack.WasPressedThisFrame())
         {
-            //attack 
+            Attack(); 
         }
     }
 
